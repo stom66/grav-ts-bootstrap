@@ -1,0 +1,46 @@
+name: T2 Bootstrap4
+version: 1.2.0
+description: "T2 Bootstrap4 is built on top of the Trilby Media Bootstrap 4 theme and uses the popular **Bootstrap 4** Framework"
+icon: bold
+author:
+  name: Tom Steventon
+  email: tom@tomsquared.co.uk
+  url: https://tomsquared.co.uk
+homepage: https://github.com/stom66/grav-ts-bootstrap
+keywords: bootstrap, bootstrap4, theme, framework
+bugs: https://github.com/stom66/grav-ts-bootstrap/issues
+license: MIT
+
+dependencies:
+  - { name: bootstrapper}
+  - { name: grav, version: '>=1.5.10' }
+
+form:
+  validation: strict
+  fields:
+
+    navbar_style:
+      type: select
+      label: NavBar Style
+      size: small
+      default: navbar-light
+      options:
+        navbar-dark: Dark
+        navbar-light: Light
+
+    navbar_bgcolor:
+      type: colorpicker
+      label: NavBar BG Color
+      size: small
+      default: '#ffffff'
+
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in navbar
+        highlight: 1
+        default: 1
+        options:
+          1: Enabled
+          0: Disabled
+        validate:
+          type: bool
