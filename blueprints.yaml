@@ -29,19 +29,19 @@ form:
       collapsed: false
 
       fields:
-        navbar_style:
+        navbar.style:
           type: select
           label: NavBar Style
-          size: small
+          size: medium
           default: navbar-light
           options:
-            navbar-dark: Dark
-            navbar-light: Light
+            navbar-dark: Dark (light text)
+            navbar-light: Light (dark text)
 
-        navbar_bgstyle:
+        navbar.bgstyle:
           type: select
           label: NavBar BG Style
-          size: small
+          size: medium
           default: bg-light
           options:
             bg-dark: Dark
@@ -55,14 +55,14 @@ form:
             bg-white: White
             bg-transparent: Transparent
 
-        navbar_bgcolor:
+        navbar.bgcolor:
           type: colorpicker
           label: NavBar BG Color
           size: small
           default: ''
           help: Overrides the NavBar BG Style. Set to blank or ffffff to disable.
 
-        dropdown.enabled:
+        navbar.dropdown:
           type: toggle
           label: Dropdown in navbar
           highlight: 1
@@ -72,6 +72,18 @@ form:
             0: Disabled
           validate:
           type: bool collapsible: true
+
+        navbar.expand:
+          type: select
+          label: Navbar expand breakpoint:
+          size: small
+          default: none
+          options:
+            none: None
+            navbar-expand-sm: Small
+            navbar-expand-md: Medium
+            navbar-expand-lg: Large
+            navbar-expand-xl: Extra Large
 
     fieldset2:
       type: fieldset
@@ -83,29 +95,49 @@ form:
       collapsed: false
 
       fields:
-        favicon_ico:
+        favicon.ico:
           type: filepicker
+          size: medium
           folder: 'user/images/favicons'
           label: Select an ICO favicon
           accept:
-            - .png
             - .ico
 
-        favicon_png:
+        favicon.png:
           type: filepicker
+          size: medium
           folder: 'user/images/favicons'
           label: Select a PNG favicon
           preview_images: true
           accept:
             - .png
 
-        favicon_svg:
+        favicon.svg:
           type: filepicker
+          size: medium
           folder: 'user/images/favicons'
           label: Select a SVG favicon
-          preview_images: false
+          preview_images: true
           accept:
             - .svg
+
+        favicon.mstile_sq:
+          type: filepicker
+          size: medium
+          folder: 'user/images/favicons'
+          label: Select a square Microsoft tile icon
+          preview_images: true
+          accept:
+            - .png
+
+        favicon.mstile_re:
+          type: filepicker
+          size: medium
+          folder: 'user/images/favicons'
+          label: Select a rectangular Microsoft tile icon (310x150)
+          preview_images: true
+          accept:
+            - .png
 
     fieldset3:
       type: fieldset
@@ -119,8 +151,27 @@ form:
       fields:
         fb_app_id:
           type: text
-          size: small
+          size: medium
           label: Facebook App ID
           validate:
               type: int
               min: 0
+              
+        twitter_handle:
+          type: text
+          size: medium
+          label: Twitter handle
+          info: Your full handle, including prefix, eg @stom66
+          validate:
+              type: int
+              min: 0
+
+        og_image:
+          type: filepicker
+          size: medium
+          folder: 'user/images'
+          label: Default OpenGraph image
+          info: OpenGraph images should be served at 19.1:10 aspect ratio
+          preview_images: true
+          accept:
+            - .png

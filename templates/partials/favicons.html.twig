@@ -1,23 +1,31 @@
+{% spaceless %}
 
-  <!-- Favicons and app icons -->
+    {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 
-    <link rel="icon"             href="{{ url('theme://images/favicon.png', true) }}"      type="image/png"  />
-    <link rel="apple-touch-icon" href="https://www.domain.com/path/to/favicon_180x180.png" sizes="180x180" />
-    <link rel="icon"             href="https://www.domain.com/path/to/favicon_32x32.png"   sizes="32x32"   type="image/png" />
-    <link rel="icon"             href="https://www.domain.com/path/to/favicon_194x194.png" sizes="194x194" type="image/png" />
-    <link rel="icon"             href="https://www.domain.com/path/to/favicon_192x192.png" sizes="192x192" type="image/png" />
-    <link rel="icon"             href="https://www.domain.com/path/to/favicon_16x16.png"   sizes="16x16"   type="image/png" />
-    <link rel="mask-icon"        href="https://www.domain.com/path/to/favicon.svg"         color="#2b5797" />
-    {% if favicon_ico %} <link rel="shortcut icon"    href="https://www.domain.com/favicon.ico" />{% endif %}
+    {% set ico = media['image://favicons/'~theme_config.favicon.ico].url() %}
+    {% set png = media['image://favicons/'~theme_config.favicon.png] %}
+    {% set svg = media['image://favicons/'~theme_config.favicon.svg].url() %}
 
-  <!-- Mobile/desktop app and viewport settings -->
-    <meta name="apple-mobile-web-app-capable"           content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style"  content="black-translucent">
-    <meta name="mobile-web-app-capable"                 content="yes">
-    <meta name="theme-color"                            content="#424a50" />
+{% endspaceless %}
 
-  <!-- Microsoft tiles -->
-    <meta name="msapplication-config"                   content="path/to/browserconfig.xml">
-    <meta name="msapplication-navbutton-color"          content="#424a50" />
-    <meta name="msapplication-TileColor"                content="#2b5797" />
-    <meta name="msapplication-TileImage"                content="path/to/mstile" />
+          <!-- Favicons and app icons -->
+            <link rel="icon"             href="{{ png.resize(512).url() }}" type="image/png"  />
+            <link rel="apple-touch-icon" href="{{ png.resize(180).url() }}" sizes="180x180" />
+            <link rel="icon"             href="{{ png.resize(32).url() }}" sizes="32x32"   type="image/png" />
+            <link rel="icon"             href="{{ png.resize(194).url() }}" sizes="194x194" type="image/png" />
+            <link rel="icon"             href="{{ png.resize(192).url() }}" sizes="192x192" type="image/png" />
+            <link rel="icon"             href="{{ png.resize(16).url() }}" sizes="16x16"   type="image/png" />
+            <link rel="mask-icon"        href="{{ svg }}"         color="#2b5797" />
+            
+            {% if ico %}<link rel="shortcut icon"    href="{{ ico }}" />{% endif %}
+          <!-- Mobile/desktop app and viewport settings -->
+            <meta name="apple-mobile-web-app-capable"           content="yes">
+            <meta name="apple-mobile-web-app-status-bar-style"  content="black-translucent">
+            <meta name="mobile-web-app-capable"                 content="yes">
+            <meta name="theme-color"                            content="#424a50" />
+    
+          <!-- Microsoft tiles -->
+            <meta name="msapplication-config"                   content="path/to/browserconfig.xml">
+            <meta name="msapplication-navbutton-color"          content="#424a50" />
+            <meta name="msapplication-TileColor"                content="#2b5797" />
+            <meta name="msapplication-TileImage"                content="path/to/mstile" />
