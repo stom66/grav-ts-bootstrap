@@ -1,5 +1,5 @@
-name: T2 Bootstrap4
-version: 1.2.0
+name: T2Bootstrap4
+version: 1.0.0
 description: "T2 Bootstrap4 is built on top of the Trilby Media Bootstrap 4 theme and uses the popular **Bootstrap 4** Framework"
 icon: bold
 author:
@@ -19,28 +19,108 @@ form:
   validation: strict
   fields:
 
-    navbar_style:
-      type: select
-      label: NavBar Style
-      size: small
-      default: navbar-light
-      options:
-        navbar-dark: Dark
-        navbar-light: Light
+    fieldset1:
+      type: fieldset
+      title: NavBar settings
+      icon: navbar
+      info: Contains settings pertaining to the top navbar element
+      help: may contain bugs. erk.
+      collapsible: true
+      collapsed: false
 
-    navbar_bgcolor:
-      type: colorpicker
-      label: NavBar BG Color
-      size: small
-      default: '#ffffff'
+      fields:
+        navbar_style:
+          type: select
+          label: NavBar Style
+          size: small
+          default: navbar-light
+          options:
+            navbar-dark: Dark
+            navbar-light: Light
 
-    dropdown.enabled:
-        type: toggle
-        label: Dropdown in navbar
-        highlight: 1
-        default: 1
-        options:
-          1: Enabled
-          0: Disabled
-        validate:
-          type: bool
+        navbar_bgstyle:
+          type: select
+          label: NavBar BG Style
+          size: small
+          default: bg-light
+          options:
+            bg-dark: Dark
+            bg-light: Light
+            bg-primary: Primary
+            bg-secondary: Secondary
+            bg-success: Success
+            bg-danger: Danger
+            bg-warning: Warning
+            bg-info: Info
+            bg-white: White
+            bg-transparent: Transparent
+
+        navbar_bgcolor:
+          type: colorpicker
+          label: NavBar BG Color
+          size: small
+          default: ''
+          help: Overrides the NavBar BG Style. Set to blank or ffffff to disable.
+
+        dropdown.enabled:
+          type: toggle
+          label: Dropdown in navbar
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+          type: bool collapsible: true
+
+    fieldset2:
+      type: fieldset
+      title: Favicon settings
+      icon: star-o
+      info: Favicons should be placed in user/images/favicons
+      help: ICO icons must be provided in ico format and should contain sizes 16, 32, and 48
+      collapsible: true
+      collapsed: false
+
+      fields:
+        favicon_ico:
+          type: filepicker
+          folder: 'user/images/favicons'
+          label: Select an ICO favicon
+          accept:
+            - .png
+            - .ico
+
+        favicon_png:
+          type: filepicker
+          folder: 'user/images/favicons'
+          label: Select a PNG favicon
+          preview_images: true
+          accept:
+            - .png
+
+        favicon_svg:
+          type: filepicker
+          folder: 'user/images/favicons'
+          label: Select a SVG favicon
+          preview_images: false
+          accept:
+            - .svg
+
+    fieldset3:
+      type: fieldset
+      title: App settings
+      icon: cogs
+      info: Contains various webapp settings
+      help: ICO icons must be provided in ico format and should contain sizes 16, 32, and 48
+      collapsible: true
+      collapsed: false
+
+      fields:
+        fb_app_id:
+          type: text
+          size: small
+          label: Facebook App ID
+          validate:
+              type: int
+              min: 0

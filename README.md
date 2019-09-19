@@ -1,8 +1,8 @@
-# Bootstrap4
+# T2Bootstrap4
 
 ![Bootstrap](assets/readme_1.png)
 
-Bootstrap4 theme is a [Grav](http://github.com/getgrav/grav) theme that is based on version 4 of the popular [Bootstrap framework](http://getbootstrap.com/).
+T2Bootstrap4 theme is a [Grav](http://github.com/getgrav/grav) theme that is based on the default Bootstrap4 theme provided by Trilby media..
 
 # Installation
 
@@ -12,23 +12,23 @@ Installing the Bootstrap4 theme can be done in one of two ways. Our GPM (Grav Pa
 
 The simplest way to install this theme is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm) through your system's Terminal (also called the command line).  From the root of your Grav install type:
 
-    bin/gpm install bootstrap4
+    bin/gpm install t2bootstrap4
 
-This will install the Bootstrap4 theme into your `/user/themes` directory within Grav. Its files can be found under `/your/site/grav/user/themes/bootstrap4`.
+This will install the t2bootstrap4 theme into your `/user/themes` directory within Grav. Its files can be found under `/your/site/grav/user/themes/t2bootstrap4`.
 
 ## Manual Installation
 
-To install this theme, just download the zip version of this repository and unzip it under `/your/site/grav/user/themes`. Then, rename the folder to `bootstrap4`. You can find these files either on [GitHub](https://github.com/getgrav/grav-theme-bootstrap4) or via [GetGrav.org](http://getgrav.org/downloads/themes).
+To install this theme, just download the zip version of this repository and unzip it under `/your/site/grav/user/themes`. Then, rename the folder to `t2bootstrap4`. You can find these files either on [GitHub](https://github.com/getgrav/grav-theme-bootstrap4) or via [GetGrav.org](http://getgrav.org/downloads/themes).
 
 You should now have all the theme files under
 
-    /your/site/grav/user/themes/bootstrap4
+    /your/site/grav/user/themes/t2bootstrap4
 
 >> NOTE: This theme is a modular component for Grav which requires the [Grav](http://github.com/getgrav/grav), [Error](https://github.com/getgrav/grav-theme-error) and [Problems](https://github.com/getgrav/grav-plugin-problems) plugins.
 
 # Updating
 
-As development for the Bootstrap4 theme continues, new versions may become available that add additional features and functionality, improve compatibility with newer Grav releases, and generally provide a better user experience. Updating Bootstrap4 is easy, and can be done through Grav's GPM system, as well as manually.
+As development for the t2bootstrap4 theme continues, new versions may become available that add additional features and functionality, improve compatibility with newer Grav releases, and generally provide a better user experience. Updating Bootstrap4 is easy, and can be done through Grav's GPM system, as well as manually.
 
 ## GPM Update (Preferred)
 
@@ -51,17 +51,17 @@ Manually updating Bootstrap4 is pretty simple. Here is what you will need to do 
 
 ## Dependencies
 
-The Bootstrap4 theme now depends on the [Bootstrapper plugin](https://github.com/getgrav/grav-plugin-bootstrapper) to provide the appropriate CSS and JS.  If you install via GPM, you should be prompted to also install this plugin.  If not you should manually install via:
+The t2bootstrap4 theme depends on the [Bootstrapper plugin](https://github.com/getgrav/grav-plugin-bootstrapper) to provide the appropriate CSS and JS. If you install via GPM, you should be prompted to also install this plugin.  If not you should manually install via:
 
     bin/gpm install bootstrapper
 
 # Setup
 
-If you want to set Bootstrap4 as the default theme, you can do so by following these steps:
+If you want to set t2bootstrap4 as the default theme, you can do so by following these steps:
 
 * Navigate to `/your/site/grav/user/config`.
 * Open the **system.yaml** file.
-* Change the `theme:` setting to `theme: bootstrap4`.
+* Change the `theme:` setting to `theme: t2bootstrap4`.
 * Save your changes.
 * Clear the Grav cache. The simplest way to do this is by going to the root Grav directory in Terminal and typing `bin/grav clear-cache`.
 
