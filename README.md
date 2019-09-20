@@ -62,6 +62,7 @@ If you want to set t2bootstrap4 as the default theme, you can do so by following
 * Navigate to `/your/site/grav/user/config`.
 * Open the **system.yaml** file.
 * Change the `theme:` setting to `theme: t2bootstrap4`.
+* Change the `absolute_urls:` setting to `absolute_urls: true`.
 * Save your changes.
 * Clear the Grav cache. The simplest way to do this is by going to the root Grav directory in Terminal and typing `bin/grav clear-cache`.
 

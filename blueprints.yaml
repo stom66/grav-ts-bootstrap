@@ -75,7 +75,7 @@ form:
 
         navbar.expand:
           type: select
-          label: Navbar expand breakpoint:
+          label: Navbar expand breakpoint
           size: small
           default: none
           options:
@@ -125,7 +125,7 @@ form:
           type: filepicker
           size: medium
           folder: 'user/images/favicons'
-          label: Select a square Microsoft tile icon
+          label: Select a square Microsoft tile icon (558x558)
           preview_images: true
           accept:
             - .png
@@ -134,7 +134,7 @@ form:
           type: filepicker
           size: medium
           folder: 'user/images/favicons'
-          label: Select a rectangular Microsoft tile icon (310x150)
+          label: Select a rectangular Microsoft tile icon (558x270)
           preview_images: true
           accept:
             - .png
@@ -175,3 +175,54 @@ form:
           preview_images: true
           accept:
             - .png
+
+        theme_color_webkit:
+          type: colorpicker
+          label: Theme color (Webkit, Firefox)
+          info: Android, Chrome, Firefox OS, and Opera header and address bar color
+          size: medium
+          default: '#424a50'
+
+        theme_color_ms:
+          type: colorpicker
+          label: Theme color (Windows phones)
+          size: medium
+          default: '#424a50'
+
+        theme_color_ios:
+          type: select
+          label: Theme color (iOS)
+          size: medium
+          default: default
+          options:
+            default: Default
+            black: Black
+            black-translucent: Black translucent
+
+        tile_color_ms:
+          type: colorpicker
+          label: Tile color (Windows 8, Metro)
+          size: medium
+          default: '#424a50'
+
+        mobile_app_capable:
+          type: toggle
+          label: mobile-web-app-capable
+          highlight: no
+          default: no
+          options:
+            no: Disabled
+            yes: Enabled
+          validate:
+          type: bool collapsible: true
+
+        apple_app_capable:
+          type: toggle
+          label: apple-mobile-web-app-capable
+          highlight: no
+          default: no
+          options:
+            no: Disabled
+            yes: Enabled
+          validate:
+          type: bool collapsible: true

@@ -5,27 +5,43 @@
     {% set ico = media['image://favicons/'~theme_config.favicon.ico].url() %}
     {% set png = media['image://favicons/'~theme_config.favicon.png] %}
     {% set svg = media['image://favicons/'~theme_config.favicon.svg].url() %}
+    {% set mstile_sq = media['image://favicons/'~theme_config.favicon.mstile_sq] %}
+    {% set mstile_re = media['image://favicons/'~theme_config.favicon.mstile_re] %}
 
 {% endspaceless %}
 
           <!-- Favicons and app icons -->
-            <link rel="icon"             href="{{ png.resize(512).url() }}" type="image/png"  />
+{% if ico %}
+            <link rel="shortcut icon" href="{{ ico }}" />
+            <link rel="icon"          href="{{ ico }}" sizes="16x16 32x32 48x48" />
+{% endif %}
+
+            <link rel="icon" href="{{ png.resize(256).url() }}" sizes="256x256" type="image/png"  />
+            <link rel="icon" href="{{ png.resize(192).url() }}" sizes="192x192" type="image/png" />
+            <link rel="icon" href="{{ png.resize(96).url() }}" sizes="96x96"   type="image/png" />
+            <link rel="icon" href="{{ png.resize(32).url() }}" sizes="32x32"   type="image/png" />
+            <link rel="icon" href="{{ png.resize(16).url() }}" sizes="16x16"   type="image/png" />
+
             <link rel="apple-touch-icon" href="{{ png.resize(180).url() }}" sizes="180x180" />
-            <link rel="icon"             href="{{ png.resize(32).url() }}" sizes="32x32"   type="image/png" />
-            <link rel="icon"             href="{{ png.resize(194).url() }}" sizes="194x194" type="image/png" />
-            <link rel="icon"             href="{{ png.resize(192).url() }}" sizes="192x192" type="image/png" />
-            <link rel="icon"             href="{{ png.resize(16).url() }}" sizes="16x16"   type="image/png" />
-            <link rel="mask-icon"        href="{{ svg }}"         color="#2b5797" />
+            <link rel="apple-touch-icon" href="{{ png.resize(152).url() }}" sizes="152x152" />
+            <link rel="apple-touch-icon" href="{{ png.resize(144).url() }}" sizes="144x144" />
+            <link rel="apple-touch-icon" href="{{ png.resize(120).url() }}" sizes="120x120" />
+            <link rel="apple-touch-icon" href="{{ png.resize(114).url() }}" sizes="114x114" />
+            <link rel="apple-touch-icon" href="{{ png.resize(76).url() }}" sizes="76x76" />
+            <link rel="apple-touch-icon" href="{{ png.resize(72).url() }}" sizes="72x72" />
+            <link rel="apple-touch-icon" href="{{ png.resize(60).url() }}" sizes="60x60" />
+            <link rel="apple-touch-icon" href="{{ png.resize(57).url() }}" sizes="57x57" />
+
+            <link rel="mask-icon" href="{{ svg }}" color="#2b5797" />
             
-            {% if ico %}<link rel="shortcut icon"    href="{{ ico }}" />{% endif %}
           <!-- Mobile/desktop app and viewport settings -->
-            <meta name="apple-mobile-web-app-capable"           content="yes">
-            <meta name="apple-mobile-web-app-status-bar-style"  content="black-translucent">
-            <meta name="mobile-web-app-capable"                 content="yes">
-            <meta name="theme-color"                            content="#424a50" />
+            <meta name="apple-mobile-web-app-capable"          content="{{ theme_config.apple_app_capable }}">
+            <meta name="apple-mobile-web-app-status-bar-style" content="{{ theme_config.theme_color_ios }}">
+            <meta name="mobile-web-app-capable"                content="{{ theme_config.mobile_app_capable }}">
+            <meta name="theme-color"                           content="{{ theme_config.theme_color_webkit }}" />
     
           <!-- Microsoft tiles -->
-            <meta name="msapplication-config"                   content="path/to/browserconfig.xml">
-            <meta name="msapplication-navbutton-color"          content="#424a50" />
-            <meta name="msapplication-TileColor"                content="#2b5797" />
-            <meta name="msapplication-TileImage"                content="path/to/mstile" />
+            <meta name="msapplication-config"                  content="path/to/browserconfig.xml">
+            <meta name="msapplication-navbutton-color"         content="{{ theme_config.theme_color_ms }}" />
+            <meta name="msapplication-TileColor"               content="{{ theme_config.tile_color_ms }}" />
+            <meta name="msapplication-TileImage"               content="{{ mstile_sq.resize(144).url() }}" />
