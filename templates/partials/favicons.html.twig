@@ -9,7 +9,6 @@
     {% set mstile_re = media['image://favicons/'~theme_config.favicon.mstile_re] %}
 
 {% endspaceless %}
-
           <!-- Favicons and app icons -->
 {% if ico %}
             <link rel="shortcut icon" href="{{ ico }}" />
@@ -35,13 +34,15 @@
             <link rel="mask-icon" href="{{ svg }}" color="#2b5797" />
             
           <!-- Mobile/desktop app and viewport settings -->
-            <meta name="apple-mobile-web-app-capable"          content="{{ theme_config.apple_app_capable }}">
-            <meta name="apple-mobile-web-app-status-bar-style" content="{{ theme_config.theme_color_ios }}">
-            <meta name="mobile-web-app-capable"                content="{{ theme_config.mobile_app_capable }}">
-            <meta name="theme-color"                           content="{{ theme_config.theme_color_webkit }}" />
+            <meta name="apple-mobile-web-app-capable"          content="{{ theme_config.ios.app_capable }}">
+            <meta name="apple-mobile-web-app-status-bar-style" content="{{ theme_config.ios.theme_color }}">
+            <meta name="mobile-web-app-capable"                content="{{ theme_config.chrome.app_capable }}">
+            <meta name="theme-color"                           content="{{ theme_config.chrome.theme_color }}" />
     
           <!-- Microsoft tiles -->
-            <meta name="msapplication-config"                  content="path/to/browserconfig.xml">
-            <meta name="msapplication-navbutton-color"         content="{{ theme_config.theme_color_ms }}" />
-            <meta name="msapplication-TileColor"               content="{{ theme_config.tile_color_ms }}" />
+{% if theme_config.ms.browserconfig!='' %}
+            <meta name="msapplication-config"                  content="{{ base_url ~ theme_config.ms.browserconfig }}">
+{% endif %}
+            <meta name="msapplication-navbutton-color"         content="{{ theme_config.ms.theme_color }}" />
+            <meta name="msapplication-TileColor"               content="{{ theme_config.ms.tile_color }}" />
             <meta name="msapplication-TileImage"               content="{{ mstile_sq.resize(144).url() }}" />

@@ -1,5 +1,7 @@
 {% spaceless %}
 	{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+	{% set locale       = grav.language.getActive ?: grav.config.site.default_lang %}
+	{% set app_name     = theme_config.chrome_app_name ?: site.title %}
 
 	{% set meta_title       = header.title ? header.title|e('html')~" | "~site.title|e('html') : site.title|e('html') %}
 	{% set meta_author      = page.metadata.author.content ?: page.header.author ?: site.title %}
@@ -7,24 +9,27 @@
 	{% set meta_description = page.header.description ?: page.metadata.description.content %}
 	{% set meta_robots      = page.metadata.robots.content ?: 'index,follow' %}
 
-	{% set og_image  = page.metadata['og:image'].content ?: page.header.ogimage ?: theme_config.ogimage?: media['image://favicons/'~theme_config.favicon.png].url() %}
-	{% set tw_handle = page.metadata['twitter:creator'] ?: theme_config.twitter_handle %}
+	{% set og_image       = page.metadata['og:image'].content ?: page.header.ogimage ?: theme_config.ogimage?: media['image://favicons/'~theme_config.favicon.png].url() %}
+	{% set og_title       = page.metadata['og:title'].content ?: meta_title %}
+	{% set og_description = page.metadata['og:description'].content ?: meta_description %}
+	{% set og_type        = page.metadata['og:type'].content ?: 'website' %}
+	{% set tw_handle      = page.metadata['twitter:creator'] ?: theme_config.twitter_handle %}
 
 {% endspaceless %}
-<meta charset="utf-8" />
+
+		  <!-- Basic header tags -->
+			<meta charset="utf-8" />
 			<meta http-equiv="x-ua-compatible" content="ie=edge" />
 			<meta name="viewport"              content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		    
 		    <title>{{ meta_title }}</title>
 
-		  <!-- Declare base URL  -->
+		  <!-- Relevant URLs  -->
 		    <base href="{{ base_url }}/" />
-
-		  <!-- Declare canonical URL -->
 		    <link rel="canonical" href="{{ page.url(true, true) }}" />
 		    
-		  <!-- Basic Meta data -->
-			<meta name="application-name"    content="{{ site.title }}" />
+		  <!-- Basic meta data -->
+			<meta name="application-name"    content="{{ app_name }}" />
 			<meta name="author"              content="{{ meta_author }}" />
 			<meta name="copyright"           content="Copyright (C) {{ page.metadata.author.content ?: page.header.author}}, {{ site.title }}, All Rights Reserved" />
 			<meta name="description"         content="{{ meta_description }}" />
@@ -32,13 +37,13 @@
 			<meta name="keywords"            content="{{ meta_keywords }}" />
 			<meta name="robots"              content="{{ meta_robots }}" />
 
-		  <!-- Open graph meta data -->
-			<meta property="og:description"  content="{{ page.header.description ?: page.metadata.description.content }}" />
+		  <!-- OpenGraph meta data -->
+			<meta property="og:description"  content="{{ og_description }}" />
 			<meta property="og:image"        content="{{ og_image }}" />
-			<meta property="og:locale"       content="{{ grav.language.getActive ?: grav.config.site.default_lang }}" />
+			<meta property="og:locale"       content="{{ locale }}" />
 			<meta property="og:site_name"    content="{{ site.title }}" />
-			<meta property="og:title"        content="{{ meta_title }}" />
-			<meta property="og:type"         content="{{ page.metadata['og:type'].content ?: 'website' }}" />
+			<meta property="og:title"        content="{{ og_title }}" />
+			<meta property="og:type"         content="{{ og_type }}" />
 			<meta property="og:updated_time" content="{{ page.metadata['og:updated_time'].content ?: page.date|date("Y-m-d\\TH:i:sP") }}" />
 			<meta property="og:url"          content="{{ page.url(true, true) }}" />
 
@@ -53,15 +58,19 @@
 			<meta name="twitter:url"         content="{{ page.url(true, true) }}" />
 			<meta name="tweetmeme-title"     content="{{ page.metadata['og:title'].content ?: meta_title }}" />
 
-		  <!-- Link to sitemap -->
-		    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.domain.com/path/to/sitemap.xml" />
+{% if config.plugins.sitemap and config.plugins.sitemap.enabled %}
+		  <!-- XML sitemap -->
+		    <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ base_url ~ config.plugins.sitemap.route }}" />
 
+{% endif %}
 {% if theme_config.fb_app_id != '' or page.metadata['fb:app_id'].content != '' %}
 		  <!-- Facebook meta data -->
 			<meta property="fb:app_id" content="{{ page.metadata['fb:app_id'].content ?: theme_config.fb_app_id }}" />
 
 {% endif %}
+{% if theme_config.chrome.app_manifest %}
 		  <!-- Web manifest -->
-		    <link rel="manifest" href="https://www.domain.com/path/to/app-manifest.json" />
+		    <link rel="manifest" href="{{ base_url ~ theme_config.chrome.app_manifest }}" />
 
-		    {% include 'partials/favicons.html.twig' %}
+{% endif %}
+{% include 'partials/favicons.html.twig' %}
