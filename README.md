@@ -1,6 +1,6 @@
 # T2Bootstrap4
 
-![Bootstrap](assets/readme_1.png?classes=pull-right&col-3)
+![Bootstrap](assets/thumbnail.png?classes=pull-right&col-3)
 
 T2Bootstrap4 theme is a [Grav](http://github.com/getgrav/grav) theme that is based on the default [Bootstrap4](https://github.com/getgrav/grav-theme-bootstrap4) theme provided by Trilby media. It includes numerous customisation options, such as navbar styles and web-app settings, as well as comprehensive favicon support.
 
@@ -22,19 +22,17 @@ You should now have all the theme files under
 
 ## Dependencies
 
-The t2bootstrap4 theme depends on the following plugins to provide the appropriate CSS and JS. If you install via GPM, you should be prompted to also install these plugins. 
+The t2bootstrap4 theme depends on the following plugins. If you install via GPM, you should be prompted to also install these plugins. 
 
 * [Grav](http://github.com/getgrav/grav)
 * [Error](https://github.com/getgrav/grav-theme-error) 
 * [Problems](https://github.com/getgrav/grav-plugin-problems)
-* [Bootstrapper](https://github.com/getgrav/grav-plugin-bootstrapper) 
 * [Sitemap](https://github.com/getgrav/grav-plugin-sitemap)
 
 If you were not prompted to install these automatically you can install them via the terminal with the following commands:
 
     bin/gpm install error
     bin/gpm install problems
-    bin/gpm install bootstrapper
     bin/gpm install sitemap
 
 # Setup
@@ -50,7 +48,32 @@ If you want to set t2bootstrap4 as the default theme, you can do so by following
 
 Once this is done, you should be able to see the new theme on the frontend. Keep in mind any customizations made to the previous theme will not be reflected as all of the theme and templating information is now being pulled from the **bootstrap4** folder.
 
+---
 
+# Customisation
+
+There are several ways to customise the theme via the admin panel. This includes selecting navbar types, favicons and brand images, colours, and optionally applying a Bootswatch theme.
+
+By default the Bootstrap/Bootswatch libraries are included from CDNs and are not included in `theme.css`. If you wish to use a custom compilation then be sure to disable the CDN includes. You will then need to enable the inclusion of the relevant libraries by editing the file `/t2bootstrap4/src/scss/theme.scss`.
+
+To customise the theme you will need to first obtain the various dependencies through npm by running the following:
+
+	cd /path/to/grav/user/themes/t2bootstrap4
+	npm install
+
+This will download Bootstrap, Bootswatch, jQuery, etc, as well as the tools needed to compile the css. Run the following to watch for changes and automatically recompile:
+
+	npm run watch
+
+Be sure to disable "Use minified CSS" in the theme settings when developing your theme. See below for more information.
+
+### theme.css vs theme.min.css
+
+Running the scss-watch above will only generate the file `theme.css` and it's sourcemap, it will not generate minified content. Be sure to disable "Use minified CSS" in the theme settings when you are developing yout theme otherwise you will not see the changes.
+
+When you are happy with your theme run the following command to compile, prefix, and minify it. Be sure to re-enable "Use minified CSS" to use the minified files.
+
+	npm run min
 
 # Updating
 

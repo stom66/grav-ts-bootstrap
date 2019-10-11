@@ -6,7 +6,7 @@ use Grav\Common\Theme;
 class T2Bootstrap4 extends Theme
 {
     // Boostrap plugin will look for this class var to know it should load
-    public $load_bootstrapper_plugin = true;
+    // public $load_bootstrapper_plugin = true;
 
     public static function getSubscribedEvents()
     {
@@ -17,7 +17,7 @@ class T2Bootstrap4 extends Theme
 
     public function onThemeInitialized()
     {
-        $this->config->set('plugins.bootstrapper.version', 'v4');
+        //$this->config->set('plugins.bootstrapper.version', 'v4');
     }
 
 }

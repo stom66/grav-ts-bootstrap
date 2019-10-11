@@ -1,0 +1,18 @@
+// Bootstrap 4.3.1
+// 
+// The order in which bootstrap+bootswatch must be include are as follows: 
+//	my variable overrides (optional), 
+//  bootswatch _variables
+//	bootstrap
+//	bootswatch _bootswatch
+
+$theme: "flatly";
+
+// Bootswatch Variables
+@import "../../node_modules/bootswatch/dist/#{$theme}/variables";
+
+// Bootstrap Core
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Bootswatch Theme
+@import "../../node_modules/bootswatch/dist/#{$theme}/bootswatch";

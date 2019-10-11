@@ -1,0 +1,93 @@
+{% spaceless %}
+
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+
+{% block stylesheets %}
+	{% if theme_config.use_minified_css == 1 %}
+    	{% do assets.add('theme://dist/theme.min.css', 110) %}
+	{% else %}
+    	{% do assets.add('theme://dist/theme.css', 110) %}
+	{% endif %}
+	
+
+	{% if theme_config.cdn_fontawesome_css %}
+    	{% do assets.add(
+    		'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', {
+    			integrity: "sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN",
+    			crossorigin: "anonymous",
+    			priority: 120
+    		}) %}
+    {% endif %}
+
+	{% if theme_config.cdn_bootstrap_css %}
+    	{% do assets.add(
+    		'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', {
+    			integrity: "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T",
+    			crossorigin: "anonymous",
+    			priority: 140
+    		}) %}
+    {% endif %}
+
+
+	{% if theme_config.cdn_bootswatch_css != 0 %}
+		{% include 'partials/bootswatch-cdn.html.twig' %}
+	{% endif %}
+
+{% endblock %}
+
+{% block javascripts %}
+	{% if theme_config.cdn_jquery_js == 1 %}
+		{% do assets.add('https://code.jquery.com/jquery-3.4.1.min.js', {
+			integrity: "sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh",
+			crossorigin: "anonymous",
+    		priority: 100
+		}) %}
+	{% endif %}
+
+	{% if theme_config.cdn_bootstrap_js == 1 %}
+		{% do assets.add('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', {
+			integrity: "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM",
+			crossorigin: "anonymous",
+    		priority: 90
+		}) %}
+	{% endif %}
+
+	{% if theme_config.cdn_modernizr_js == 1 %}
+		{% do assets.add('https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', {
+		integrity: "sha384-bPV3mA2eo3edoq56VzcPBmG1N1QVUfjYMxVIJPPzyFJyFZ8GFfN7Npt06Zr23qts",
+		crossorigin: "anonymous",
+    		priority: 80
+		}) %}
+	{% endif %}
+
+	{% if theme_config.cdn_bootlint_js == 1 %}
+		{% do assets.add('https://stackpath.bootstrapcdn.com/bootlint/0.16.7/bootlint.min.js', {
+			integrity: "sha384-3T50BVAepXDP+/77qijxE3Yj8K/jaICuCvy27UZhXdMymNl/ojOww5yJKFINHsvK",
+			crossorigin: "anonymous",
+    		priority: 70
+		}) %}
+	{% endif %}
+
+	{% do assets.add('theme://js/app.js', {group:'bottom'}) %}
+
+	{% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
+			<!-- HTML5 Shiv for IE -->
+		{% do assets.add('https://oss.maxcdn.com/respond/1.4.2/respond.min.js', {
+			integrity: "sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo",
+			crossorigin: "anonymous",
+    		priority: 60
+		}) %}
+		{% do assets.add('https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js', {
+			integrity: "sha384-302VbqujSMfxaP68VZlkyj8Lm6BMyRG6g9to0rxGPCwJg1/roloFqMP9twkd1m8+",
+			crossorigin: "anonymous",
+    		priority: 50
+		}) %}
+	{% endif %}
+{% endblock %}
+
+{% endspaceless %}
+
+{% block assets deferred %}
+	{{ assets.css()|raw }}
+	{{ assets.js()|raw }}
+{% endblock %}

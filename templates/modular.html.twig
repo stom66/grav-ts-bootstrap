@@ -1,7 +1,7 @@
 {% extends 'partials/base.html.twig' %}
 {% import _self as macro %}
 
-{% set show_onpage_menu = header.onpage_menu == true or header.onpage_menu is null %}
+{% set show_onpage_menu = header.onpage_menu == true or header.onpage_menu is not null %}
 {% macro pageLinkName(text) %}{{ text|lower|replace({' ':'_'}) }}{% endmacro %}
 
 {% block javascripts %}

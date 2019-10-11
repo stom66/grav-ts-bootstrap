@@ -1,0 +1,27 @@
+// T2Bootstrap4
+// theme.scss
+// 
+// This is the main scss file that is watched by npm when running: npm run watch
+//
+// By default it does not import the bootstrap and fontawesome frameworks as the 
+// template is set to include these from CDNs by default. If you wish to customise 
+// the botostrap and or bootswatch frameworks then uncomment the lines below to import 
+// them and be sure to disable the CDN inclusions in the settings for this theme.
+
+// Theme variables
+@import "theme/variables";
+
+// Typography settings
+@import "theme/typography";
+
+// Bootstrap 4.3 framework
+//@import "vendor/bootstrap";
+
+// FontAwesome framework
+//@import "vendor/fontawesome";
+
+// Animations
+@import "theme/animation";
+
+// Additional styles
+@import "theme/default";

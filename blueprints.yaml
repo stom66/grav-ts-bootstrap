@@ -12,7 +12,6 @@ bugs: https://github.com/stom66/grav-ts-bootstrap/issues
 license: MIT
 
 dependencies:
-  - { name: bootstrapper}
   - { name: grav, version: '>=1.5.10' }
 
 form:
@@ -21,26 +20,164 @@ form:
 
     fieldset1:
       type: fieldset
+      title: Theme settings
+      icon: cog
+      info: Contains settings pertaining to the theme operation
+      help: may contain bugs. erk.
+      collapsible: true
+      collapsed: false
+
+      fields:
+        use_minified_css:
+          type: toggle
+          label: Use minified CSS
+          highlight: 1
+          default: 1
+          options:
+            0: Disabled
+            1: Enabled
+          validate:
+          type: bool collapsible: true
+          
+        cdn_jquery_js:
+          type: toggle
+          label: Include jQuery JS from CDN
+          highlight: 1
+          default: 1
+          options:
+            0: Disabled
+            1: Enabled
+          validate:
+          type: bool collapsible: true
+          
+        cdn_bootstrap_css:
+          type: toggle
+          label: Include Bootstrap CSS from CDN
+          highlight: 1
+          default: 1
+          options:
+            0: Disabled
+            1: Enabled
+          validate:
+          type: bool collapsible: true
+          
+        cdn_bootstrap_js:
+          type: toggle
+          label: Include Bootstrap JS from CDN
+          highlight: 1
+          default: 1
+          options:
+            0: Disabled
+            1: Enabled
+          validate:
+          type: bool collapsible: true
+
+        cdn_bootswatch_css:
+          type: select
+          label: Bootswatch theme to include
+          size: medium
+          default: 0
+          options:
+            0: Disabled
+            cerulean: Cerulean
+            cosmo: Cosmo
+            cyborg: Cyborg
+            darkly: Darkly
+            flatly: Flatly
+            journal: Journal
+            litera: Litera
+            lumen: Lumen
+            lux: Lux
+            materia: Materia
+            minty: Minty
+            pulse: Pulse
+            sandstone: Sandstone
+            simplex: Simplex
+            sketchy: Sketchy
+            slate: Slate
+            solar: Solar
+            spacelab: Spacelab
+            superhero: Superhero
+            united: United
+            yeti: Yeti
+          
+        cdn_bootlint_js:
+          type: toggle
+          label: Include BootlintJS from CDN
+          highlight: 0
+          default: 0
+          options:
+            0: Disabled
+            1: Enabled
+          validate:
+          type: bool collapsible: true
+          
+        cdn_fontawesome_css:
+          type: toggle
+          label: Include FontAwesome CSS from CDN
+          highlight: 1
+          default: 1
+          options:
+            0: Disabled
+            1: Enabled
+          validate:
+          type: bool collapsible: true
+          
+        cdn_modernizr_js:
+          type: toggle
+          label: Include modernizr JS from CDN
+          highlight: 1
+          default: 1
+          options:
+            0: Disabled
+            1: Enabled
+          validate:
+          type: bool collapsible: true
+
+
+    fieldset2:
+      type: fieldset
       title: NavBar settings
-      icon: navbar
+      icon: navicon
       info: Contains settings pertaining to the top navbar element
       help: may contain bugs. erk.
       collapsible: true
       collapsed: false
 
       fields:
+        navbar.type:
+          type: select
+          label: Type
+          size: medium
+          default: navbar
+          options:
+            navbar: Default
+            fixed-top: Fixed top
+            fixed-bottom: Fixed bottom
+            sticky-top: Sticky top
+
         navbar.style:
           type: select
-          label: NavBar Style
+          label: Style
           size: medium
           default: navbar-light
           options:
             navbar-dark: Dark (light text)
             navbar-light: Light (dark text)
 
+        navbar.container:
+          type: select
+          label: Container
+          size: medium
+          default: none
+          options:
+            none: No container
+            links: Navbar contents 
+            navbar: Navbar
+
         navbar.bgstyle:
           type: select
-          label: NavBar BG Style
+          label: Background style
           size: medium
           default: bg-light
           options:
@@ -57,7 +194,7 @@ form:
 
         navbar.bgcolor:
           type: colorpicker
-          label: NavBar BG Color
+          label: Background color
           size: small
           default: ''
           help: Overrides the NavBar BG Style. Set to blank or ffffff to disable.
@@ -75,7 +212,7 @@ form:
 
         navbar.expand:
           type: select
-          label: Navbar expand breakpoint
+          label: Expand breakpoint
           size: small
           default: none
           options:
@@ -85,7 +222,31 @@ form:
             navbar-expand-lg: Large
             navbar-expand-xl: Extra Large
 
-    fieldset2:
+        navbar.icon:
+          type: filepicker
+          size: medium
+          folder: 'user/images'
+          label: Brand icon
+          accept:
+            - .png
+            - .jpg
+
+        navbar.icon_size:
+          type: range
+          label: Brand size
+          default: 30
+          validate:
+            min: 24
+            max: 64
+            step: 4
+              
+        navbar.classes:
+          type: text
+          size: medium
+          label: Custom classes
+          info: Any custom classes you wish applied ot the navbar element
+
+    fieldset3:
       type: fieldset
       title: Favicon settings
       icon: star-o
@@ -139,7 +300,7 @@ form:
           accept:
             - .png
 
-    fieldset3:
+    fieldset4:
       type: fieldset
       title: Meta data options
       icon: cogs
@@ -176,7 +337,7 @@ form:
           accept:
             - .png
 
-    fieldset4:
+    fieldset5:
       type: fieldset
       title: Chrome/webkit settings
       icon: cogs
@@ -197,7 +358,7 @@ form:
         chrome.app_capable:
           type: toggle
           label: App capable? (mobile-app-capable)
-          highlight: no
+          highlight: yes
           default: no
           options:
             no: Disabled
@@ -245,7 +406,7 @@ form:
           default: 
           size: medium
 
-    fieldset5:
+    fieldset6:
       type: fieldset
       title: Microsoft/Ie/Edge settings
       icon: cogs
@@ -273,7 +434,7 @@ form:
           type: pages
           size: medium
 
-    fieldset6:
+    fieldset7:
       type: fieldset
       title: Apple/iOS settings
       icon: cogs
@@ -297,7 +458,7 @@ form:
         ios.app_capable:
           type: toggle
           label: App capable? (apple-mobile-web-app-capable)
-          highlight: no
+          highlight: yes
           default: no
           options:
             no: Disabled
