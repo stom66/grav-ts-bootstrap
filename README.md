@@ -35,6 +35,8 @@ If you were not prompted to install these automatically you can install them via
     bin/gpm install problems
     bin/gpm install sitemap
 
+---
+
 # Setup
 
 If you want to set t2bootstrap4 as the default theme, you can do so by following these steps:
@@ -74,6 +76,8 @@ Running the scss-watch above will only generate the file `theme.css` and it's so
 When you are happy with your theme run the following command to compile, prefix, and minify it. Be sure to re-enable "Use minified CSS" to use the minified files.
 
 	npm run min
+
+---
 
 # Updating
 
