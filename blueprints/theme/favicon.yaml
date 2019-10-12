@@ -1,0 +1,45 @@
+form:
+  fields:
+    favicon.ico:
+      type: filepicker
+      size: medium
+      folder: 'user/images/favicons'
+      label: Select an ICO favicon
+      accept:
+        - .ico
+
+    favicon.png:
+      type: filepicker
+      size: medium
+      folder: 'user/images/favicons'
+      label: Select a PNG favicon
+      preview_images: true
+      accept:
+        - .png
+
+    favicon.svg:
+      type: filepicker
+      size: medium
+      folder: 'user/images/favicons'
+      label: Select a SVG favicon
+      preview_images: true
+      accept:
+        - .svg
+
+    favicon.mstile_sq:
+      type: filepicker
+      size: medium
+      folder: 'user/images/favicons'
+      label: Select a square Microsoft tile icon (558x558)
+      preview_images: true
+      accept:
+        - .png
+
+    favicon.mstile_re:
+      type: filepicker
+      size: medium
+      folder: 'user/images/favicons'
+      label: Select a rectangular Microsoft tile icon (558x270)
+      preview_images: true
+      accept:
+        - .png

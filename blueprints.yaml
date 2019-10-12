@@ -26,114 +26,9 @@ form:
       help: may contain bugs. erk.
       collapsible: true
       collapsed: false
-
-      fields:
-        use_minified_css:
-          type: toggle
-          label: Use minified CSS
-          highlight: 1
-          default: 1
-          options:
-            0: Disabled
-            1: Enabled
-          validate:
-          type: bool collapsible: true
-          
-        cdn_jquery_js:
-          type: toggle
-          label: Include jQuery JS from CDN
-          highlight: 1
-          default: 1
-          options:
-            0: Disabled
-            1: Enabled
-          validate:
-          type: bool collapsible: true
-          
-        cdn_bootstrap_css:
-          type: toggle
-          label: Include Bootstrap CSS from CDN
-          highlight: 1
-          default: 1
-          options:
-            0: Disabled
-            1: Enabled
-          validate:
-          type: bool collapsible: true
-          
-        cdn_bootstrap_js:
-          type: toggle
-          label: Include Bootstrap JS from CDN
-          highlight: 1
-          default: 1
-          options:
-            0: Disabled
-            1: Enabled
-          validate:
-          type: bool collapsible: true
-
-        cdn_bootswatch_css:
-          type: select
-          label: Bootswatch theme to include
-          size: medium
-          default: 0
-          options:
-            0: Disabled
-            cerulean: Cerulean
-            cosmo: Cosmo
-            cyborg: Cyborg
-            darkly: Darkly
-            flatly: Flatly
-            journal: Journal
-            litera: Litera
-            lumen: Lumen
-            lux: Lux
-            materia: Materia
-            minty: Minty
-            pulse: Pulse
-            sandstone: Sandstone
-            simplex: Simplex
-            sketchy: Sketchy
-            slate: Slate
-            solar: Solar
-            spacelab: Spacelab
-            superhero: Superhero
-            united: United
-            yeti: Yeti
-          
-        cdn_bootlint_js:
-          type: toggle
-          label: Include BootlintJS from CDN
-          highlight: 0
-          default: 0
-          options:
-            0: Disabled
-            1: Enabled
-          validate:
-          type: bool collapsible: true
-          
-        cdn_fontawesome_css:
-          type: toggle
-          label: Include FontAwesome CSS from CDN
-          highlight: 1
-          default: 1
-          options:
-            0: Disabled
-            1: Enabled
-          validate:
-          type: bool collapsible: true
-          
-        cdn_modernizr_js:
-          type: toggle
-          label: Include modernizr JS from CDN
-          highlight: 1
-          default: 1
-          options:
-            0: Disabled
-            1: Enabled
-          validate:
-          type: bool collapsible: true
-
+      import@:
+        type: blueprints/theme/resources
+        context: theme://
 
     fieldset2:
       type: fieldset
@@ -143,108 +38,9 @@ form:
       help: may contain bugs. erk.
       collapsible: true
       collapsed: false
-
-      fields:
-        navbar.type:
-          type: select
-          label: Type
-          size: medium
-          default: navbar
-          options:
-            navbar: Default
-            fixed-top: Fixed top
-            fixed-bottom: Fixed bottom
-            sticky-top: Sticky top
-
-        navbar.style:
-          type: select
-          label: Style
-          size: medium
-          default: navbar-light
-          options:
-            navbar-dark: Dark (light text)
-            navbar-light: Light (dark text)
-
-        navbar.container:
-          type: select
-          label: Container
-          size: medium
-          default: none
-          options:
-            none: No container
-            links: Navbar contents 
-            navbar: Navbar
-
-        navbar.bgstyle:
-          type: select
-          label: Background style
-          size: medium
-          default: bg-light
-          options:
-            bg-dark: Dark
-            bg-light: Light
-            bg-primary: Primary
-            bg-secondary: Secondary
-            bg-success: Success
-            bg-danger: Danger
-            bg-warning: Warning
-            bg-info: Info
-            bg-white: White
-            bg-transparent: Transparent
-
-        navbar.bgcolor:
-          type: colorpicker
-          label: Background color
-          size: small
-          default: ''
-          help: Overrides the NavBar BG Style. Set to blank or ffffff to disable.
-
-        navbar.dropdown:
-          type: toggle
-          label: Dropdown in navbar
-          highlight: 1
-          default: 1
-          options:
-            1: Enabled
-            0: Disabled
-          validate:
-          type: bool collapsible: true
-
-        navbar.expand:
-          type: select
-          label: Expand breakpoint
-          size: small
-          default: none
-          options:
-            none: None
-            navbar-expand-sm: Small
-            navbar-expand-md: Medium
-            navbar-expand-lg: Large
-            navbar-expand-xl: Extra Large
-
-        navbar.icon:
-          type: filepicker
-          size: medium
-          folder: 'user/images'
-          label: Brand icon
-          accept:
-            - .png
-            - .jpg
-
-        navbar.icon_size:
-          type: range
-          label: Brand size
-          default: 30
-          validate:
-            min: 24
-            max: 64
-            step: 4
-              
-        navbar.classes:
-          type: text
-          size: medium
-          label: Custom classes
-          info: Any custom classes you wish applied ot the navbar element
+      import@:
+        type: blueprints/theme/navbar
+        context: theme://
 
     fieldset3:
       type: fieldset
@@ -254,51 +50,9 @@ form:
       help: ICO icons must be provided in ico format and should contain sizes 16, 32, and 48
       collapsible: true
       collapsed: false
-
-      fields:
-        favicon.ico:
-          type: filepicker
-          size: medium
-          folder: 'user/images/favicons'
-          label: Select an ICO favicon
-          accept:
-            - .ico
-
-        favicon.png:
-          type: filepicker
-          size: medium
-          folder: 'user/images/favicons'
-          label: Select a PNG favicon
-          preview_images: true
-          accept:
-            - .png
-
-        favicon.svg:
-          type: filepicker
-          size: medium
-          folder: 'user/images/favicons'
-          label: Select a SVG favicon
-          preview_images: true
-          accept:
-            - .svg
-
-        favicon.mstile_sq:
-          type: filepicker
-          size: medium
-          folder: 'user/images/favicons'
-          label: Select a square Microsoft tile icon (558x558)
-          preview_images: true
-          accept:
-            - .png
-
-        favicon.mstile_re:
-          type: filepicker
-          size: medium
-          folder: 'user/images/favicons'
-          label: Select a rectangular Microsoft tile icon (558x270)
-          preview_images: true
-          accept:
-            - .png
+      import@:
+        type: blueprints/theme/favicon
+        context: theme://
 
     fieldset4:
       type: fieldset
@@ -308,34 +62,9 @@ form:
       help: ICO icons must be provided in ico format and should contain sizes 16, 32, and 48
       collapsible: true
       collapsed: false
-
-      fields:
-        fb_app_id:
-          type: text
-          size: medium
-          label: Facebook App ID
-          validate:
-              type: int
-              min: 0
-              
-        twitter_handle:
-          type: text
-          size: medium
-          label: Twitter handle
-          info: Your full handle, including prefix, eg @stom66
-          validate:
-              type: int
-              min: 0
-
-        og_image:
-          type: filepicker
-          size: medium
-          folder: 'user/images'
-          label: Default OpenGraph image
-          info: OpenGraph images should be served at 19.1:10 aspect ratio
-          preview_images: true
-          accept:
-            - .png
+      import@:
+        type: blueprints/theme/metadata
+        context: theme://
 
     fieldset5:
       type: fieldset
@@ -345,66 +74,9 @@ form:
       help: ICO icons must be provided in ico format and should contain sizes 16, 32, and 48
       collapsible: true
       collapsed: false
-
-      fields:
-
-        chrome.theme_color:
-          type: colorpicker
-          label: Theme color (Webkit, Firefox)
-          info: Android, Chrome, Firefox OS, and Opera header and address bar color
-          size: medium
-          default: '#424a50'
-
-        chrome.app_capable:
-          type: toggle
-          label: App capable? (mobile-app-capable)
-          highlight: yes
-          default: no
-          options:
-            no: Disabled
-            yes: Enabled
-          validate:
-          type: bool collapsible: true
-
-        chrome.app_display:
-          type: select
-          label: Chrome app manifest display setting
-          size: medium
-          default: standalone
-          options:
-            standalone: standalone
-            browser: browser
-            fullscreen: fullscreen
-            standalone: standalone
-            minimal-ui: minimal-ui
-
-        chrome.app_manifest:
-          label: Manifest.json location
-          type: pages
-          size: medium
-
-        chrome.app_start_url:
-          label: App start page
-          type: pages
-          size: medium
-
-        chrome.app_scope:
-          label: App scope
-          type: text
-          default: /
-          size: medium
-
-        chrome.app_name:
-          label: App name
-          type: text
-          default: 
-          size: medium
-
-        chrome.app_short_name:
-          label: App short_name
-          type: text
-          default: 
-          size: medium
+      import@:
+        type: blueprints/theme/chrome
+        context: theme://
 
     fieldset6:
       type: fieldset
@@ -414,25 +86,9 @@ form:
       help: ICO icons must be provided in ico format and should contain sizes 16, 32, and 48
       collapsible: true
       collapsed: false
-
-      fields:
-
-        ms.theme_color:
-          type: colorpicker
-          label: Theme color
-          size: medium
-          default: '#424a50'
-
-        ms.tile_color:
-          type: colorpicker
-          label: Tile color
-          size: medium
-          default: '#424a50'
-
-        ms.browserconfig:
-          label: browserconfig.xml location
-          type: pages
-          size: medium
+      import@:
+        type: blueprints/theme/msie
+        context: theme://
 
     fieldset7:
       type: fieldset
@@ -442,27 +98,7 @@ form:
       help: ICO icons must be provided in ico format and should contain sizes 16, 32, and 48
       collapsible: true
       collapsed: false
-
-      fields:
-
-        ios.theme_color:
-          type: select
-          label: Theme color
-          size: medium
-          default: default
-          options:
-            default: Default
-            black: Black
-            black-translucent: Black translucent
-
-        ios.app_capable:
-          type: toggle
-          label: App capable? (apple-mobile-web-app-capable)
-          highlight: yes
-          default: no
-          options:
-            no: Disabled
-            yes: Enabled
-          validate:
-          type: bool collapsible: true
+      import@:
+        type: blueprints/theme/appleios
+        context: theme://
 
