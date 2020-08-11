@@ -9,25 +9,21 @@
 	</head>
 
     <body class="{% spaceless %}
-	    {% block body_classes %}
-	    	{{ page.header.body_classes }}
-	    	{% set navbar = theme_var('navbar') %}
-	    	{% if navbar.type!='navbar' %} 
-	    		mt-5 pt-5
-	    	{% endif %}
-	    {% endblock %}
-    {% endspaceless %}">
-        {% if config.plugins.langswitcher.enabled %}
-            {% include 'partials/langswitcher.html.twig' %}
-        {% endif %}
-
+		    {% block body_classes %}
+		    	{{ page.header.body_classes }}
+		    	{% set navbar = theme_var('navbar') %}
+		    	{% if navbar.type!='navbar' %} 
+		    		mt-5 pt-5
+		    	{% endif %}
+		    {% endblock %}
+	    {% endspaceless %}">
         {% block header_navigation %}
             {% include 'partials/navigation.html.twig' %}
         {% endblock %}
 
         {% block content %}{% endblock %}
-        {% block pagination %}{% endblock %}
 
+        {% block pagination %}{% endblock %}
 
 		{% block footer %}
 			{% include 'partials/footer.html.twig' %}

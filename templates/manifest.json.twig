@@ -2,15 +2,15 @@
 
     {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 
-	{% set ico_png        = media['image://favicons/'~theme_config.favicon.png] %}
-	{% set app_start_url  = theme_config.chrome_app_start_url ?: base_url %}
-	{% set app_scope      = theme_config.chrome_app_scope ?: '' %}
-	{% set app_name       = theme_config.chrome_app_name ?: site.title %}
-	{% set app_short_name = theme_config.chrome_app_short_name ?: app_name %}
+	{% set ico_png    = media['image://favicons/'~theme_config.favicon.png] %}
+	{% set app        = theme_config.chrome %}
+	{% set start_url  = app.app_start_url ?: base_url %}
+	{% set name       = app.app_name ?: site.title %}
+	{% set short_name = app.app_short_name ?: name %}
 
 	{% set json = {
-		"short_name": app_short_name,
-		"name": app_name,
+		"short_name": short_name,
+		"name": name,
 		"icons": [
 			{
 				"src": ico_png.resize(192).url(),
@@ -23,14 +23,18 @@
 				"sizes": "512x512"
 			}
 		],
-		"start_url": app_start_url,
-		"background_color": theme_config.theme_color_webkit,
-		"display": theme_config.chrome_app_display,
-		"scope": app_scope,
-		"theme_color": theme_config.theme_color_webkit
+		"start_url"       : start_url,
+		"background_color": app.theme_color,
+		"display"         : app.app_display,
+		"theme_color"     : app.theme_color
 	}
 	%}
+	{% if app.app_scope != '' %}
+		{% set json = json|merge({
+    		"scope": app.app_scope
+		}) %}
+	{% endif %}
 
-	{{ json|json_encode }}
 
 {% endspaceless %}
+{{ json|json_encode }}

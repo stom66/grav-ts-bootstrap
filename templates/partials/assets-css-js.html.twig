@@ -66,6 +66,10 @@
 			crossorigin: "anonymous",
     		priority: 70
 		}) %}
+		{% do assets.add('theme://src/js/trigger-bootlint.js', {
+    		priority: 10,
+    		group: 'bottom'
+		}) %}
 	{% endif %}
 
 	{% do assets.add('theme://js/app.js', {group:'bottom'}) %}

@@ -5,8 +5,6 @@
 {% set navbar_class = navbar_class ~ (navbar.expand=='none'? '' : navbar.expand ~ " ") %}
 {% set navbar_class = navbar_class ~ (navbar.bgcolor=="#ffffff" ? navbar.bgstyle ~ " " : '') %}
 
-{{ dump(navbar) }}
-
 {% endspaceless %}
 {% if navbar.container=="navbar" %}
     <div class="container">

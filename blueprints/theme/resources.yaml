@@ -46,7 +46,7 @@ form:
 
     cdn_bootswatch_css:
       type: select
-      label: Bootswatch theme to include
+      label: Include Bootswatch theme from CDN
       size: medium
       default: 0
       options:
