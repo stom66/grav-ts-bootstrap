@@ -2,8 +2,12 @@
 
 {% block content %}
     <!-- Start of modular content -->
-    {% for item in page.collection %}
-        {{ item.content }}
-    {% endfor %}
+    <div class="container">
+        <div class="row">
+            {% for item in page.collection %}
+                {{ item.content }}
+            {% endfor %}
+        </div>
+    </div>
     <!-- // End modular content  -->
 {% endblock %}

@@ -1,3 +1,0 @@
-$(function() {
-	bootlint.showLintReportForCurrentDocument([]);
-});

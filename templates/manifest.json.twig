@@ -4,6 +4,7 @@
 
 	{% set ico_png    = media['image://favicons/'~theme_config.favicon.png] %}
 	{% set app        = theme_config.chrome %}
+	
 	{% set start_url  = app.app_start_url ?: base_url %}
 	{% set name       = app.app_name ?: site.title %}
 	{% set short_name = app.app_short_name ?: name %}

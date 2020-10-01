@@ -8,8 +8,6 @@ form:
       options:
         0: Disabled
         1: Enabled
-      validate:
-      type: bool collapsible: true
       
     cdn_jquery_js:
       type: toggle
@@ -19,8 +17,6 @@ form:
       options:
         0: Disabled
         1: Enabled
-      validate:
-      type: bool collapsible: true
       
     cdn_bootstrap_css:
       type: toggle
@@ -30,8 +26,6 @@ form:
       options:
         0: Disabled
         1: Enabled
-      validate:
-      type: bool collapsible: true
       
     cdn_bootstrap_js:
       type: toggle
@@ -41,8 +35,6 @@ form:
       options:
         0: Disabled
         1: Enabled
-      validate:
-      type: bool collapsible: true
 
     cdn_bootswatch_css:
       type: select
@@ -73,17 +65,6 @@ form:
         united: United
         yeti: Yeti
       
-    cdn_bootlint_js:
-      type: toggle
-      label: Include BootlintJS from CDN
-      highlight: 0
-      default: 0
-      options:
-        0: Disabled
-        1: Enabled
-      validate:
-      type: bool collapsible: true
-      
     cdn_fontawesome_css:
       type: toggle
       label: Include FontAwesome CSS from CDN
@@ -92,8 +73,6 @@ form:
       options:
         0: Disabled
         1: Enabled
-      validate:
-      type: bool collapsible: true
       
     cdn_modernizr_js:
       type: toggle
@@ -103,5 +82,3 @@ form:
       options:
         0: Disabled
         1: Enabled
-      validate:
-      type: bool collapsible: true

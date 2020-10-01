@@ -29,7 +29,7 @@
     {% endif %}
 
 
-	{% if theme_config.cdn_bootswatch_css != 0 %}
+	{% if theme_config.cdn_bootswatch_css != "0" %}
 		{% include 'partials/bootswatch-cdn.html.twig' %}
 	{% endif %}
 
@@ -57,18 +57,6 @@
 		integrity: "sha384-bPV3mA2eo3edoq56VzcPBmG1N1QVUfjYMxVIJPPzyFJyFZ8GFfN7Npt06Zr23qts",
 		crossorigin: "anonymous",
     		priority: 80
-		}) %}
-	{% endif %}
-
-	{% if theme_config.cdn_bootlint_js == 1 %}
-		{% do assets.add('https://stackpath.bootstrapcdn.com/bootlint/0.16.7/bootlint.min.js', {
-			integrity: "sha384-3T50BVAepXDP+/77qijxE3Yj8K/jaICuCvy27UZhXdMymNl/ojOww5yJKFINHsvK",
-			crossorigin: "anonymous",
-    		priority: 70
-		}) %}
-		{% do assets.add('theme://src/js/trigger-bootlint.js', {
-    		priority: 10,
-    		group: 'bottom'
 		}) %}
 	{% endif %}
 

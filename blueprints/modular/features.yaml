@@ -30,11 +30,24 @@ form:
 
               fields:
                 .icon:
-                  type: text
+                  type: iconpicker
                   label: Icon
+                .size:
+                  type: select
+                  label: Size
+                  options:
+                    fa-foo: Default
+                    fa-lg: Large 1x
+                    fa-2x: Large 2x
+                    fa-3x: Large 3x
+                    fa-4x: Large 4x
+                    fa-5x: Large 5x
                 .header:
                   type: text
                   label: Header
                 .text:
                   type: text
                   label: Text
+                .url:
+                  type: text
+                  label: URL (optional)

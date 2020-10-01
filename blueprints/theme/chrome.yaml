@@ -16,8 +16,6 @@ form:
       options:
         no: Disabled
         yes: Enabled
-      validate:
-      type: bool collapsible: true
 
     chrome.app_display:
       type: select
@@ -25,7 +23,6 @@ form:
       size: medium
       default: standalone
       options:
-        standalone: standalone
         browser: browser
         fullscreen: fullscreen
         standalone: standalone

@@ -14,6 +14,9 @@
 // Typography settings
 @import "theme/typography";
 
+// Customisation
+// If you're customising the thtme then you will want to uncomment the following includes
+
 // Bootstrap 4.3 framework
 //@import "vendor/bootstrap";
 
@@ -25,3 +28,12 @@
 
 // Additional styles
 @import "theme/default";
+
+
+/*
+
+ {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+ {% set app        = theme_config.chrome %}
+ {{ app.theme_color }}
+
+ */

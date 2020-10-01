@@ -62,7 +62,17 @@ footer {
   bottom: 0;
   width: 100%;
   height: 100px;
-  background-color: #e9ecef;
+  background-color: #343a40;
 }
+
+/* End Sticky footer styles
+-------------------------------------------------- */
+/*
+
+ {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+ {% set app        = theme_config.chrome %}
+ {{ app.theme_color }}
+
+ */
 
 /*# sourceMappingURL=theme.css.map */

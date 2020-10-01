@@ -62,8 +62,6 @@ form:
       options:
         1: Enabled
         0: Disabled
-      validate:
-      type: bool collapsible: true
 
     navbar.expand:
       type: select

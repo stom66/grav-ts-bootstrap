@@ -18,5 +18,3 @@ form:
       options:
         no: Disabled
         yes: Enabled
-      validate:
-      type: bool collapsible: true

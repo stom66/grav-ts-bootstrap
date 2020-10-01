@@ -102,3 +102,15 @@ form:
         type: blueprints/theme/appleios
         context: theme://
 
+    fieldset8:
+      type: fieldset
+      title: Map settings
+      icon: map
+      info: Choose options for Google Maps or OpenStreet thing
+      help: You will need a valid API key to use either of these maps.
+      collapsible: true
+      collapsed: false
+      import@:
+        type: blueprints/theme/map
+        context: theme://
+
